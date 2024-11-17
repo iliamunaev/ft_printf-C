@@ -1,2 +1,5 @@
 .vscode/
 *.pdf
+*.out
+tester/
+tests/a.out

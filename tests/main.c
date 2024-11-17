@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/17 10:08:28 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/17 19:20:35 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 %c Prints a single character.
 %s Prints a string (as defined by the common C convention).
@@ -11,61 +23,48 @@
 */
 
 #include <stdio.h>
+#include <limits.h>
+#include "../ft_printf.h"
 
-int main(void)
+void	main(void)
 {
-    // %c Prints a single character
-    char single_char_a = 'a';
-    char single_char_z = 'z';
-    char single_char_32 = 32; // ASCII space
-    char single_char_126 = 126; // ASCII tilde
+	// int
+	printf("---------- Testing int ... -----------------\n");
 
-    printf("Single characters: '%c', '%c', '%c', '%c'\n", single_char_a, single_char_z, single_char_32, single_char_126);
+	printf("INT_MIN: %i\n", INT_MIN);
+	ft_printf("INT_MIN: %i\n", INT_MIN);
 
-    // %s Prints a string
-    char str1[] = "This is a string.";
-    char str2[] = "... This is a string ...";
+	printf("INT_MAX: %i\n", INT_MAX);
+	ft_printf("INT_MAX: %i\n", INT_MAX);
 
-    printf("Strings: \"%s\" and \"%s\"\n", str1, str2);
+	// unsigned int
+	printf("---------- Testing unsigned int ... --------\n");
 
-    // %p The void * pointer argument has to be printed in hexadecimal format, dont forget add 0x!
-    char *ptr = str1; // 0x (folowed by any nums like 0x7ffe05237fb0)
-    char *null_ptr = NULL; // (nil)
+	printf("UINT_MAX: %u\n", UINT_MAX);
+	ft_printf("UINT_MAX: %u\n", UINT_MAX);
 
-    printf("Pointer to str1: %p, NULL pointer: %p\n", ptr, null_ptr);
+	printf("'-1': %u\n", -1);
+	ft_printf("'-1': %u\n", -1);
 
-    // %d Prints a decimal (base 10) number
-    int decimal = 1777; // 1777
 
-    printf("Decimal number: %d\n", decimal);
+	printf("---------- Testing decimal ... -------------\n");
 
-    // %i Prints an integer in base 10
-    int integer_42 = 42;
-    int integer_min = -2147483648;
-    int integer_max = 2147483647;
-    char integer_char_a = 'a'; // Implicit cast from char to int 97
 
-    printf("Integers: %i, %i, %i, character as integer: %i\n", integer_42, integer_min, integer_max, integer_char_a);
+	printf("---------- Testing unsigned decimal ... ----\n");
 
-    // %u Prints an unsigned decimal (base 10) number
-    unsigned int unsigned_decimal1 = 42;
-    unsigned int unsigned_decimal_max = 4294967295;
 
-    printf("Unsigned decimals: %u, %u\n", unsigned_decimal1, unsigned_decimal_max);
+	printf("---------- Testing string ... --------------\n");
 
-    // %x Prints a number in hexadecimal (base 16) lowercase format
-    int hexadecimal_0 = 0; // 0
-    int hexadecimal_15 = 15; // f
-    int hexadecimal_42 = 42; //  2a / 2A
-    unsigned int hexadecimal_max = 2147483647; // 7fffffff / 7FFFFFFF
 
-    printf("Hexadecimal (lowercase): %x, %x, %x, %x\n", hexadecimal_0, hexadecimal_15, hexadecimal_42, hexadecimal_max);
+	printf("---------- Testing pointer ... -------------\n");
 
-    // %X Prints a number in hexadecimal (base 16) uppercase format
-    printf("Hexadecimal (uppercase): %X, %X, %X, %X\n", hexadecimal_0, hexadecimal_15, hexadecimal_42, hexadecimal_max);
 
-    // %% Prints a percent sign
-    printf("Percent sign: %%\n");
+	printf("---------- Testing hex low ... -------------\n");
 
-    return (0);
+
+	printf("---------- Testing hex upper int ... -------\n");
+
+
+	printf("---------- Testing %% ... -------------------\n");
+
 }

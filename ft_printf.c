@@ -1,41 +1,75 @@
-#include "libftprintf.h"
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/16 22:28:06 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/17 19:02:42 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 /*
 Conversion specifications
 
 %c Prints a single character.
-%s Prints a string (as defined by the common C convention).
-%p The void * pointer argument has to be printed in hexadecimal format.
+%s Prints a sing (as defined by the common C convention).
+%p The void * pointer argument has to be printed in hexadecimal s.
 %d Prints a decimal (base 10) number.
 %i Prints an integer in base 10.
 %u Prints an unsigned decimal (base 10) number.
-%x Prints a number in hexadecimal (base 16) lowercase format.
-%X Prints a number in hexadecimal (base 16) uppercase format.
+%x Prints a number in hexadecimal (base 16) lowercase s.
+%X Prints a number in hexadecimal (base 16) uppercase s.
 %% Prints a percent sign.
 */
 
-int	ft_printf(const char *s, ...)
+#include "ft_printf.h"
+
+static int	handle_format(va_list args, char specifier)
 {
-	int i;
+	int	count;
+
+	count = 0;
+	if (specifier == 'c')
+		count += ft_putchar(va_arg(args, int));
+	else if (specifier == 's')
+		count += ft_putstr(va_arg(args, char *));
+	else if (specifier == 'p')
+		count += ft_putptr(va_arg(args, void *));
+	else if (specifier == 'd' || specifier == 'i')
+		count += ft_putnbr(va_arg(args, int));
+	else if (specifier == 'u')
+		count += ft_putnbr_unsigned(va_arg(args, unsigned int));
+	else if (specifier == 'x' || specifier == 'X')
+		count += ft_puthex(va_arg(args, unsigned int), specifier);
+	else if (specifier == '%')
+		count += ft_putchar('%');
+	else
+		count += ft_putchar(specifier);
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		i;
+	int		bytes_total;
 
 	i = 0;
-
-	// iterate through the input string
-	while(s[i] != '\0')
+	bytes_total = 0;
+	va_start(args, format);
+	while (format[i])
 	{
-		// find '%' to recognize the convertion
-		if (s[i] == '%')
+		if (format[i] == '%')
 		{
-			..... = convert(s[++i]);
-			cspdiuxX%
-
-
-
+			i++;
+			bytes_total += handle_format(args, format[i]);
 		}
-		ft_putchar(s[i]);
+		else
+			bytes_total += ft_putchar(format[i]);
 		i++;
 	}
-	return (i);
-
+	va_end(args);
+	return (bytes_total);
 }
