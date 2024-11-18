@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 10:08:28 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 15:25:29 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:19:18 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	main(void)
 	printf("Int ptr len: %i = %i\n\n", ptrl1, ptrl2);
 
 	char char_a = 'a';
-	char	ptr2 = char_a;
+	char	*ptr2 = &char_a;
 	int ptr2l1 = printf("Char ptr: %p\n", ptr2);
 	int ptr2l2 = ft_printf("Char ptr: %p\n", ptr2);
 	printf("Char ptr len: %i = %i\n\n", ptr2l1, ptr2l2);
@@ -165,11 +165,15 @@ void	main(void)
 	int t2 = ft_printf("15%%\n");
 	printf("%%_str_len: %i = %i\n\n", t1, t2);
 
+	int t3 = printf("%%%%%%\n");
+	int t4 = ft_printf("%%%%%%\n");
+	printf("%%_str_len: %i = %i\n\n", t3, t4);
+
 	// combinations
 	printf("---------- Testing combinations ... ---------\n");
 
-	int com1 = printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, ULONG_MAX, 15);
-	int com2 = ft_printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, ULONG_MAX, 15);
+	int com1 = printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, INT_MAX, 15);
+	int com2 = ft_printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, INT_MAX, 15);
 	printf("Comb_len: %i = %i\n\n", com1, com2);
 
 }

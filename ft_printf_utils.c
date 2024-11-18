@@ -6,15 +6,15 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:07:18 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 15:22:19 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 21:27:32 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
+ssize_t	ft_putstr(char *str)
 {
-	int	count;
+	ssize_t	count;
 
 	count = 0;
 	if (!str)
@@ -27,9 +27,9 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
-int	ft_putptr(void *ptr)
+ssize_t	ft_putptr(void *ptr)
 {
-	int				count;
+	ssize_t			count;
 	unsigned long	address;
 
 	address = (unsigned long)ptr;
@@ -41,9 +41,9 @@ int	ft_putptr(void *ptr)
 	return (count);
 }
 
-int	ft_puthex(unsigned long num, char specifier)
+ssize_t	ft_puthex(unsigned long num, char specifier)
 {
-	int		count;
+	ssize_t	count;
 	char	*hex_digits;
 
 	count = 0;
@@ -59,9 +59,9 @@ int	ft_puthex(unsigned long num, char specifier)
 	return (count);
 }
 
-int	ft_putnbr_unsigned(unsigned int n)
+ssize_t	ft_putnbr_unsigned(unsigned int n)
 {
-	int	count;
+	ssize_t	count;
 
 	count = 0;
 	if (n >= 10)
@@ -70,9 +70,9 @@ int	ft_putnbr_unsigned(unsigned int n)
 	return (count);
 }
 
-int	ft_putnbr(int n)
+ssize_t	ft_putnbr(int n)
 {
-	int		count;
+	ssize_t	count;
 	long	num;
 
 	count = 0;
