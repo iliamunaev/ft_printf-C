@@ -1,4 +1,4 @@
-NAME = ibftprintf.a
+NAME = libftprintf.a
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -11,7 +11,7 @@ HEADER = ft_printf.h
 
 all: $(NAME)
 
-# Create the library
+# Create the library, linking with libft
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
@@ -34,6 +34,7 @@ clean:
 # Clean everything
 fclean: clean
 	rm -f $(NAME)
+
 
 # Rebuild
 re: fclean all
