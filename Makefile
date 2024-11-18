@@ -11,7 +11,7 @@ HEADER = ft_printf.h
 
 all: $(NAME)
 
-# Create the library, linking with libft
+# Create the library
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
@@ -34,7 +34,6 @@ clean:
 # Clean everything
 fclean: clean
 	rm -f $(NAME)
-
 
 # Rebuild
 re: fclean all
