@@ -6,16 +6,11 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:07:18 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 15:12:56 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:22:19 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 int	ft_putstr(char *str)
 {
@@ -34,7 +29,7 @@ int	ft_putstr(char *str)
 
 int	ft_putptr(void *ptr)
 {
-	int	count;
+	int				count;
 	unsigned long	address;
 
 	address = (unsigned long)ptr;
@@ -48,8 +43,8 @@ int	ft_putptr(void *ptr)
 
 int	ft_puthex(unsigned long num, char specifier)
 {
-	int	count;
-	char		*hex_digits;
+	int		count;
+	char	*hex_digits;
 
 	count = 0;
 	if (specifier == 'x')
@@ -77,8 +72,8 @@ int	ft_putnbr_unsigned(unsigned int n)
 
 int	ft_putnbr(int n)
 {
-	int	count;
-	long		num;
+	int		count;
+	long	num;
 
 	count = 0;
 	num = n;

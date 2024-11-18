@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 22:28:06 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 15:12:49 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:17:15 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ Conversion specifications
 */
 
 #include "ft_printf.h"
+
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 int	handle_format(va_list args, char specifier)
 {
