@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 10:08:28 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 12:06:19 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:12:44 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	main(void)
 
 	printf("char_a: %i\n", 'a');
 	ft_printf("char_a: %i\n", 'a');
-
 
 
 	// decimal
@@ -76,7 +75,7 @@ void	main(void)
 	printf("char_a: %u\n", 'a');
 	ft_printf("char_a: %u\n", 'a');
 
-
+	// str
 	printf("---------- Testing string ... --------------\n");
 
 	int i1 = printf("Norm str: %s\n", "Helsinki");
@@ -92,7 +91,7 @@ void	main(void)
 	int i6 = ft_printf("NULL str: %s\n", str);
 	printf("NULL str len: %i = %i\n\n", i5, i6);
 
-
+	// ptr
 	printf("---------- Testing pointer ... -------------\n");
 
 	int intgr = 1;
@@ -119,7 +118,7 @@ void	main(void)
 	printf("NULL ptr len: %i = %i\n\n", ptr4l1, ptr4l2);
 
 
-
+	// hex
 	printf("---------- Testing hex low ... -------------\n");
 
 
@@ -138,7 +137,7 @@ void	main(void)
 	printf("char_a: %x\n", 'a');
 	ft_printf("char_a: %x\n", 'a');
 
-
+	// HEX
 	printf("---------- Testing hex upper int ... -------\n");
 
 	printf("INT_MIN: %X\n", INT_MIN);
@@ -156,10 +155,21 @@ void	main(void)
 	printf("char_a: %X\n", 'a');
 	ft_printf("char_a: %X\n", 'a');
 
-
+	// %
 	printf("---------- Testing %% ... -------------------\n");
 
-	printf("char_%: %%\n", '%');
-	ft_printf("char_%: %%\n", '%');
+	printf("char_%%\n");
+	ft_printf("char_%%\n");
+
+	int t1 = printf("15%%\n");
+	int t2 = ft_printf("15%%\n");
+	printf("%%_str_len: %i = %i\n\n", t1, t2);
+
+	// combinations
+	printf("---------- Testing combinations ... ---------\n");
+
+	int com1 = printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, ULONG_MAX, 15);
+	int com2 = ft_printf("Int is %i, Dec is %d. HEX is %X\n", INT_MAX, ULONG_MAX, 15);
+	printf("Comb_len: %i = %i\n\n", com1, com2);
 
 }

@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:07:18 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/18 12:18:19 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:12:56 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-
-int ft_putspec(char c)
-{
-	return (write(1, "%", 1));
 }
 
 int	ft_putstr(char *str)
