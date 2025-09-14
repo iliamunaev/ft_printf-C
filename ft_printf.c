@@ -13,10 +13,11 @@
 #include "ft_printf.h"
 
 /*
-** Checks if a given character is a valid format specifier for ft_printf.
+** Checks if a character is a valid format specifier for ft_printf.
+** Valid specifiers are: c, s, p, d, i, u, x, X, %
 **
 ** c: The character to check.
-** Return: 1 if the character is a valid specifier, 0 otherwise.
+** Return: 1 if valid specifier, 0 otherwise.
 */
 
 int	in_set(char c)
@@ -26,12 +27,11 @@ int	in_set(char c)
 }
 
 /*
-** Processes the format specifier and writes the corresponding argument
-** to the standard output.
+** Processes a format specifier and outputs the corresponding argument.
 **
-** args: The list of arguments passed to ft_printf.
-** specifier: The format specifier to handle.
-** Return: The number of bytes written on success, -1 on failure.
+** args: Variable argument list containing the data to format.
+** specifier: Format specifier character (c, s, p, d, i, u, x, X, %).
+** Return: Number of bytes written on success, -1 on failure.
 */
 
 ssize_t	handle_format(va_list args, char specifier)
@@ -60,23 +60,13 @@ ssize_t	handle_format(va_list args, char specifier)
 }
 
 /*
-** A simplified implementation of printf that formats and writes data
-** to the standard output based on a format string.
+** Simplified printf implementation supporting format specifiers: c, s, p, d, i, u, x, X, %.
+** - %c: character, %s: string, %p: pointer, %d/%i: signed int
+** - %u: unsigned int, %x/%X: hex (lower/upper), %%: percent sign
 **
-** Supported conversion specifications:
-** - %c: Prints a single character.
-** - %s: Prints a string.
-** - %p: Prints a pointer in hexadecimal format.
-** - %d: Prints a signed decimal integer.
-** - %i: Prints a signed decimal integer.
-** - %u: Prints an unsigned decimal integer.
-** - %x: Prints an unsigned hexadecimal integer (lowercase).
-** - %X: Prints an unsigned hexadecimal integer (uppercase).
-** - %%: Prints a literal percent sign.
-**
-** format: The format string containing text and format specifiers.
-** param ...: The variable arguments corresponding to the format specifiers.
-** Return: The total number of bytes written on success, or -1 on failure.
+** format: Format string with text and specifiers.
+** ...: Variable arguments matching the format specifiers.
+** Return: Total bytes written on success, -1 on failure.
 */
 
 ssize_t	ft_printf(const char *format, ...)
@@ -104,6 +94,13 @@ ssize_t	ft_printf(const char *format, ...)
 	va_end(args);
 	return (bytes_total);
 }
+
+/*
+** Writes a single character to the standard output.
+**
+** c: The character to write.
+** Return: The number of bytes written (1) on success, -1 on failure.
+*/
 
 ssize_t	ft_putchar(char c)
 {

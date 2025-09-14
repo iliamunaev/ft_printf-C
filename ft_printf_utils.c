@@ -12,6 +12,13 @@
 
 #include "ft_printf.h"
 
+/*
+** Writes a string to the standard output, handling NULL strings by printing "(null)".
+**
+** str: The string to write (can be NULL).
+** Return: The total number of bytes written.
+*/
+
 ssize_t	ft_putstr(char *str)
 {
 	ssize_t	count;
@@ -27,6 +34,14 @@ ssize_t	ft_putstr(char *str)
 	return (count);
 }
 
+/*
+** Writes a pointer address to the standard output in hexadecimal format.
+** NULL pointers are displayed as "(nil)".
+**
+** ptr: The pointer to write.
+** Return: The total number of bytes written.
+*/
+
 ssize_t	ft_putptr(void *ptr)
 {
 	ssize_t			count;
@@ -40,6 +55,15 @@ ssize_t	ft_putptr(void *ptr)
 	count += ft_puthex(address, 'x');
 	return (count);
 }
+
+/*
+** Converts an unsigned long integer to hexadecimal representation and writes it.
+** Supports both lowercase ('x') and uppercase ('X') hexadecimal digits.
+**
+** num: The number to convert.
+** specifier: 'x' for lowercase hex, 'X' for uppercase hex.
+** Return: The total number of bytes written.
+*/
 
 ssize_t	ft_puthex(unsigned long num, char specifier)
 {
@@ -59,6 +83,13 @@ ssize_t	ft_puthex(unsigned long num, char specifier)
 	return (count);
 }
 
+/*
+** Converts an unsigned integer to decimal string representation and writes it.
+**
+** n: The unsigned integer to write.
+** Return: The total number of bytes written.
+*/
+
 ssize_t	ft_putnbr_unsigned(unsigned int n)
 {
 	ssize_t	count;
@@ -69,6 +100,14 @@ ssize_t	ft_putnbr_unsigned(unsigned int n)
 	count += ft_putchar((n % 10) + '0');
 	return (count);
 }
+
+/*
+** Converts a signed integer to decimal string representation and writes it.
+** Handles negative numbers by prefixing with a minus sign.
+**
+** n: The signed integer to write.
+** Return: The total number of bytes written.
+*/
 
 ssize_t	ft_putnbr(int n)
 {
